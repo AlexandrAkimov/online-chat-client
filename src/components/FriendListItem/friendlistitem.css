@@ -1,0 +1,27 @@
+.item-friend {
+  border: 2px solid #7a7a7a;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 10px;
+}
+.fr_nick {
+  min-width: 100px;
+  text-overflow: ellipsis;
+  color: #7a7a7a;
+}
+.friend-actions {
+  display: flex;
+  align-items: center;
+}
+.btn_remove {
+  padding: 5px;
+  margin-left: 20px;
+  width: 27px;
+  height: 27px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}

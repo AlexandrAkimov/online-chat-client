@@ -11,3 +11,44 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.btn_save {
+  background-color: cornflowerblue;
+  outline: none;
+  border: none;
+  color: #fff;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn_back {
+  margin-left: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: 2px solid cornflowerblue;
+  color: cornflowerblue;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid cornflowerblue;
+  outline: none;
+}
+
+.img_profile {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.btn_file {
+  width: 100%;
+  margin-top: 10px;
+}

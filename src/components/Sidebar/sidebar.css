@@ -1,0 +1,90 @@
+.sidebar {
+  height: 100vh;
+  width: 30%;
+  margin: 0 0 0 -30%;
+  background-color: #202021;
+  transition: margin 0.5s;
+  
+}
+.is_open {
+  margin-left: 0;
+}
+
+.input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 5px;
+  border-bottom: 1px solid #7a7a7a;
+  color: #7a7a7a;
+}
+.btn {
+  width: 100px;
+  height: 30px;
+  border: none;
+  background-color: #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.sidebar_content {
+  padding: 10px;
+}
+.contact_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.contact_item {
+  cursor: pointer;
+  color: #7a7a7a;
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 850px) {
+  .sidebar {
+    width: 50%;
+    margin: 0 0 0 -50%;
+  }
+  .is_open {
+    margin-left: 0;
+  }
+  
+  .sidebar_content {
+    padding: 10px;
+  }
+  .contact_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .contact_item {
+    cursor: pointer;
+    color: antiquewhite;
+    margin: 10px 0;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .sidebar {
+    width: 90%;
+    margin: 0 0 0 -90%;
+  }
+  .is_open {
+    margin-left: 0;
+  }
+  
+  .sidebar_content {
+    padding: 10px;
+  }
+  .contact_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .contact_item {
+    cursor: pointer;
+    color: antiquewhite;
+    margin: 10px 0;
+  }
+}
