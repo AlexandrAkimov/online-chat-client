@@ -1,7 +1,9 @@
 import {$host, $authHost} from './axios'
 
 export const registration = async payload => {
+
   const response = await $host.post('api/users/registration', payload)
+  
   return response
 }
 

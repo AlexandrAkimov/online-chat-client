@@ -22,7 +22,7 @@
   width: 100px;
   height: 30px;
   border: none;
-  background-color: #ccc;
+  background-color: #81d1e2;
   border-radius: 5px;
   margin-top: 10px;
   cursor: pointer;
@@ -69,6 +69,30 @@
   .sidebar {
     width: 90%;
     margin: 0 0 0 -90%;
+  }
+  .is_open {
+    margin-left: 0;
+  }
+  
+  .sidebar_content {
+    padding: 10px;
+  }
+  .contact_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .contact_item {
+    cursor: pointer;
+    color: antiquewhite;
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 500px) { 
+  .sidebar {
+    width: 100%;
+    margin: 0 0 0 -100%;
   }
   .is_open {
     margin-left: 0;

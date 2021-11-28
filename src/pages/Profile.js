@@ -48,9 +48,9 @@ const Profile = () => {
   return (
     <div style={{ padding: '10px', width: '350px', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
       {currentUser ?
-        <><label>Ваш никнейм:</label> <br />
+        <><label className="label">Ваш никнейм:</label> <br />
           <input type="text" value={name} onChange={e => setName(e.target.value)} className="input"/> <br /> <br />
-          <label>Ваш аватар:</label> <br/>
+          <label className="label">Ваш аватар:</label> <br/>
           {currentUser.photo ?
             <img src={`${previewSrc ? previewSrc : process.env.REACT_APP_API_URL + currentUser?.photo}`} alt="photos" className="img_profile" />
             : <EmptyAvatar big={true} nickname={currentUser.nickname} />

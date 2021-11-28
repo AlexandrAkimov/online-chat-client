@@ -52,3 +52,25 @@ code {
   width: 100%;
   margin-top: 10px;
 }
+
+.auth {
+  background-color: #292929;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  color: #7a7a7a;
+}

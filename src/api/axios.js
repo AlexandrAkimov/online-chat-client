@@ -2,7 +2,7 @@ import axios from 'axios'
 //import {createBrowserHistory} from 'history'
 
 const $host = axios.create({
-  baseURL: process.env.REACT_APP_API_URL
+  baseURL: 'https://chat-app-online.herokuapp.com/'
 })
 
 const $authHost = axios.create({

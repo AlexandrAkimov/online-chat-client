@@ -33,12 +33,25 @@ const Login = () => {
 
   }
   return (
-    <div>
-      <input type="text" value={nickname} placeholder="Введите Никнэйм" onChange={e => setNickname(e.target.value)} /><br />
-      <input type="password" value={password} placeholder="Введите пароль" onChange={e => setPassword(e.target.value)} /><br />
-      <input type="file" placeholder="Выберите фото" onChange={changeFileHandler} /><br />
-      <button onClick={() => loginHandler(true)}>Войти</button>
-      <button onClick={() => loginHandler()}>Зарегистрироваться</button>
+    <div className="auth">
+      <div className="card">
+        <label className="label">никнейм</label>
+        <input
+          className="input"
+          type="text"
+          value={nickname}
+          placeholder="Введите Никнэйм"
+          onChange={e => setNickname(e.target.value)} /><br />
+        <label className="label">пароль</label>
+        <input className="input" type="password" value={password} placeholder="Введите пароль" onChange={e => setPassword(e.target.value)} /><br />
+        <input type="file" placeholder="Выберите фото" onChange={changeFileHandler} style={{color: '#7a7a7a'}} /><br />
+        <div className="btns">
+          <button onClick={() => loginHandler(true)} className="btn">Войти</button>
+          <button onClick={() => loginHandler()} className="btn" style={{width: 'auto'}}>Зарегистрироваться</button>
+        </div>
+        
+      </div>
+
     </div>
   );
 }

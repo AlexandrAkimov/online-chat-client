@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate, Outlet, useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import moment from 'moment'
 import { logout } from '../../store/actions/userAction';
 import './chat.css'
 import Header from '../Header/Header';
+import { AiOutlineSend } from "react-icons/ai";
 
 
-const Home = ({ onToggle, messages, sendMessage, onDisconnect }) => {
+const Home = ({ onToggle, messages, sendMessage, onDisconnect, currentUser, isDrawer }) => {
+  const divRef = useRef(null);
   let params = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
 
   const logoutHandler = (nickname) => {
     onDisconnect(nickname)
@@ -25,6 +29,11 @@ const Home = ({ onToggle, messages, sendMessage, onDisconnect }) => {
   const keyUpHandlerSendMessage = e => {
     if (e.code === 'Enter') {
       sendMessage(value)
+      setValue('')
+      setTimeout(() => {
+        divRef.current.scrollTop = divRef.current.scrollHeight;
+      }, 0);
+
     }
   }
 
@@ -34,21 +43,44 @@ const Home = ({ onToggle, messages, sendMessage, onDisconnect }) => {
 
   return (
     <div style={{ flexGrow: 1 }}>
-      <Header onToggle={onToggle} onLogout={logoutHandler} />
+      <Header onToggle={onToggle} onLogout={logoutHandler} isDrawer={isDrawer}/>
       {
         !params.profile ?
-          <div className="home">
-            <input type="text" value={value} onChange={e => setValue(e.target.value)} placeholder="Введите сообщение" onKeyUp={keyUpHandlerSendMessage} />
-            <button onClick={() => sendMessage(value)}>Отправить сообщение</button>
-            {uniqueBy(messages, (m, m2) => m.id === m2.id).map(mess => {
-              return (<div key={mess.id}>
-                {
-                  mess.event === 'connection'
-                    ? <div>Пользователь {mess.username} подключился</div>
-                    : <div>{mess.username}. {mess.message}</div>
-                }
-              </div>)
-            })}
+          <div className="main_home">
+            <div className="home" ref={divRef}>
+
+              {uniqueBy(messages, (m, m2) => m.id === m2.id).map(mess => {
+                return (<div key={mess.id}>
+                  {
+                    mess.event === 'connection'
+                      ? <div className="meta_text">Пользователь {mess.username} подключился</div>
+                      : <div className={`meta_user_text ${mess.username !== currentUser.nickname ? 'right' : ''}`}>
+                        <div>{mess.username === currentUser.nickname ? 'Вы' : mess.username}</div>
+                        <div className={`message_text ${mess.username === currentUser.nickname ? 'myself' : ''}`}>{mess.message}</div> <span className="time">{moment(new Date(+mess.id)).format('HH:mm')}</span>
+                      </div>
+                  }
+                </div>)
+              })}
+
+            </div>
+            <div className="actionss">
+              <textarea
+                type="text"
+                value={value}
+                onChange={e => setValue(e.target.value)}
+                className="textarea"
+                placeholder="Введите сообщение"
+                onKeyUp={keyUpHandlerSendMessage} />
+
+              <AiOutlineSend color="#7a7a7a" fontSize="30px" onClick={() => {
+                sendMessage(value);
+                setValue('')
+                setTimeout(() => {
+                  divRef.current.scrollTop = divRef.current.scrollHeight;
+                }, 0);
+              }} />
+
+            </div>
 
           </div> : null
       }

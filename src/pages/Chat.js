@@ -27,7 +27,7 @@ const Chat = () => {
     }
     dispatch(getCurrentUser())
     if (currentUser?.nickname && !publicSocket.current) {
-      publicSocket.current = new WebSocket('ws://localhost:5000')
+      publicSocket.current = new WebSocket('ws://chat-app-online.herokuapp.com/')
       publicSocket.current.onopen = () => {
         const message = {
           event: 'connection',
@@ -62,7 +62,7 @@ const Chat = () => {
   }
 
   const connection = (roomNum) => {
-    socket.current = new WebSocket('ws://localhost:5000')
+    socket.current = new WebSocket('ws://chat-app-online.herokuapp.com/')
     socket.current.onopen = () => {
       const message = {
         event: 'connection',
@@ -137,7 +137,14 @@ const Chat = () => {
   return (
     <div style={{ display: 'flex', backgroundColor: '#181818' }} onClick={() => toOnline(currentUser?.nickname)}>
       <Sidebar isDrawer={isDrawer} onConnect={onConnect} onlineUsers={onlineUsers}/>
-      <Home onToggle={toggleDrawerHandler} messages={messages} sendMessage={sendMessage} onDisconnect={onDisconnect}/>
+      <Home 
+        isDrawer={isDrawer}
+        onToggle={toggleDrawerHandler} 
+        messages={messages} 
+        sendMessage={sendMessage} 
+        onDisconnect={onDisconnect} 
+        currentUser={currentUser}
+      />
     </div>
 
   );

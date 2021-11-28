@@ -5,7 +5,7 @@ import { MdMenu } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
 import './header.css'
 import EmptyAvatar from '../EmptyAvatar/EmptyAvatar';
-const Header = ({ onToggle, onLogout }) => {
+const Header = ({ onToggle, onLogout, isDrawer }) => {
   const [errorImg, setErrorImg] = useState(false)
   const [isMenu, setIsMenu] = useState(false)
   const currentUser = useSelector(state => state.user.currentUser)
@@ -17,7 +17,8 @@ const Header = ({ onToggle, onLogout }) => {
   return (
     <header className="header">
       <MdMenu color="#fff" fontSize="30px" cursor="pointer" onClick={onToggle} />
-      <div className="actions">
+      {!isDrawer ?
+        <div className="actions">
         <div className="item-user" onClick={() => setIsMenu(prev => !prev)}>
           {
             errorImg ? <EmptyAvatar nickname={currentUser?.nickname} /> :
@@ -33,9 +34,12 @@ const Header = ({ onToggle, onLogout }) => {
           </div>
           : null
         }
-
-        <BiLogOut color="#fff" fontSize="30px" cursor="pointer" onClick={() => onLogout(currentUser?.nickname)} />
+        <div>
+          <BiLogOut color="#fff" fontSize="30px" cursor="pointer" onClick={() => onLogout(currentUser?.nickname)} />
+        </div>
       </div>
+      : null}
+      
 
     </header>
   );

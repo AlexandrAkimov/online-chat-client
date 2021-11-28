@@ -5,8 +5,9 @@ export const getFriends = () => {
   return async dispatch => {
     try {
       const friends = await getFriendsApi()
+      console.log(friends);
       dispatch({
-        type: GET_FRIENDS, payload: friends.data.rows
+        type: GET_FRIENDS, payload: friends.data
       })  
     } catch (error) {
       console.log(error);      
