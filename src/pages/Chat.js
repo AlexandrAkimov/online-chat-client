@@ -27,7 +27,7 @@ const Chat = () => {
     }
     dispatch(getCurrentUser())
     if (currentUser?.nickname && !publicSocket.current) {
-      publicSocket.current = new WebSocket('ws://chat-app-online.herokuapp.com/')
+      publicSocket.current = new WebSocket('wss://chat-app-online.herokuapp.com/')
       publicSocket.current.onopen = () => {
         const message = {
           event: 'connection',
@@ -62,7 +62,7 @@ const Chat = () => {
   }
 
   const connection = (roomNum) => {
-    socket.current = new WebSocket('ws://chat-app-online.herokuapp.com/')
+    socket.current = new WebSocket('wss://chat-app-online.herokuapp.com/')
     socket.current.onopen = () => {
       const message = {
         event: 'connection',
