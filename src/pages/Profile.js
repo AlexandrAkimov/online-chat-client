@@ -52,7 +52,7 @@ const Profile = () => {
           <input type="text" value={name} onChange={e => setName(e.target.value)} className="input"/> <br /> <br />
           <label className="label">Ваш аватар:</label> <br/>
           {currentUser.photo ?
-            <img src={`${previewSrc ? previewSrc : process.env.REACT_APP_API_URL + currentUser?.photo}`} alt="photos" className="img_profile" />
+            <img src={`${previewSrc ? previewSrc : 'https://chat-app-online.herokuapp.com/' + currentUser?.photo}`} alt="photos" className="img_profile" />
             : <EmptyAvatar big={true} nickname={currentUser.nickname} />
 
           }

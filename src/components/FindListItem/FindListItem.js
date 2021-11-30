@@ -9,7 +9,7 @@ const FindListItem = ({user, friends, onAddFriend}) => {
       <div className="item-user">
         {
           errorImg ? <EmptyAvatar nickname={user.nickname}/> :
-          <img onError={() => setErrorImg(true)} className="avatar" src={`${process.env.REACT_APP_API_URL}${user?.photo}`} alt={user.photo} />
+          <img onError={() => setErrorImg(true)} className="avatar" src={`https://chat-app-online.herokuapp.com/${user?.photo}`} alt={user.photo} />
         }{user.nickname}
       </div>
 

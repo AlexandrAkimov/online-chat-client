@@ -12,7 +12,7 @@ const FriendListItem = ({ onlineFriends, friend, connectToFriend, removeFriendHa
       <div className="item-user">
         {
           errorImg ? <EmptyAvatar nickname={friend.nickname} /> :
-            <img onError={() => setErrorImg(true)} className="avatar" src={`${process.env.REACT_APP_API_URL}${friend.photo}`} alt={friend.photo} />
+            <img onError={() => setErrorImg(true)} className="avatar" src={`https://chat-app-online.herokuapp.com/${friend.photo}`} alt={friend.photo} />
         }<span className="fr_nick">{friend.nickname}</span>
       </div>
       <div className="friend-actions">

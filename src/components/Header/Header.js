@@ -22,7 +22,7 @@ const Header = ({ onToggle, onLogout, isDrawer }) => {
         <div className="item-user" onClick={() => setIsMenu(prev => !prev)}>
           {
             errorImg ? <EmptyAvatar nickname={currentUser?.nickname} /> :
-              <img onError={() => setErrorImg(true)} className="avatar" src={`${process.env.REACT_APP_API_URL}${currentUser?.photo}`} alt={currentUser?.photos} />
+              <img onError={() => setErrorImg(true)} className="avatar" src={`https://chat-app-online.herokuapp.com/${currentUser?.photo}`} alt={currentUser?.photos} />
           }
           <span className="nickname">{currentUser?.nickname}</span>
         </div>
